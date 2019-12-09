@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background: #bbb;
+    font-family: sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        height: 15vh;
+        background-color: dodgerblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main {
+        min-height: 85%;
+        border: 1px solid #aaa;
+        background-color: #fff;
+        flex-grow: 1;
+        padding: 1.5em;
+        display: grid;
+        grid-template: 
+            "header header" 100px
+            "sidebar map" 1fr / 300px 1fr;
+
+        .country__select {
+            grid-area: header;
+
+            select:disabled {
+                cursor: not-allowed;
+                opacity: .7;
+            }
+
+            select {
+                outline: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+                padding: 20px;
+                width: 100%;
+                cursor: pointer;
+                border-radius: 2px;
+                border: 1px solid #aaa;
+                background: url('./select-arrow.svg') calc(100% - 10px) center / 20px 20px no-repeat;
+            }
+        }
+
+        .country__sidebar {
+            padding-right: 1.5em;
+
+            .country-flag {
+                background: #eee;
+                border: 1px solid #aaa;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+
+            .country-data {
+                margin-top: 20px;
+                color: #888;
+
+                .country-name {
+                    color: #333;
+                }
+
+                & > *:not(h3) {
+                    font-size: 14px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+
+        .country-map {
+            border: 1px solid #aaa;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

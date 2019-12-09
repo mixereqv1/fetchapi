@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: #bbb;
+  font-family: sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .header {
+  height: 15vh;
+  background-color: dodgerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .main {
+  min-height: 85%;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  flex-grow: 1;
+  padding: 1.5em;
+  display: grid;
+  grid-template: "header header" 100px "sidebar map" 1fr / 300px 1fr;
+}
+
+.container .main .country__select {
+  grid-area: header;
+}
+
+.container .main .country__select select:disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+.container .main .country__select select {
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 20px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+  background: url("./select-arrow.svg") calc(100% - 10px) center/20px 20px no-repeat;
+}
+
+.container .main .country__sidebar {
+  padding-right: 1.5em;
+}
+
+.container .main .country__sidebar .country-flag {
+  background: #eee;
+  border: 1px solid #aaa;
+  position: relative;
+}
+
+.container .main .country__sidebar .country-flag img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container .main .country__sidebar .country-data {
+  margin-top: 20px;
+  color: #888;
+}
+
+.container .main .country__sidebar .country-data .country-name {
+  color: #333;
+}
+
+.container .main .country__sidebar .country-data > *:not(h3) {
+  font-size: 14px;
+  padding-bottom: 20px;
+}
+
+.container .main .country-map {
+  border: 1px solid #aaa;
+  height: 100%;
+  width: 100%;
+}
